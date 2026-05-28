@@ -2,8 +2,13 @@ import express from 'express';
 import cors from 'cors';
 import pino from 'pino-http';
 import 'dotenv/config';
+import { notFoundHandler } from './middleware/notFoundHandler.js';
+import { errorHandler } from './middleware/errorHandler.js';
+import { errors } from 'celebrate';
 import { connectMongoDB } from './db/connectMongoDB.js';
 import petsRoute from './routes/petsRoute.js';
+import newsRoute from './routes/newsRoute.js';
+import authRoute from './routes/authRoute.js';
 
 const PORT = process.env.PORT ?? 3000;
 
@@ -27,7 +32,15 @@ app.use(
   }),
 );
 
+app.use('/api/auth', authRoute);
 app.use('/api/pets', petsRoute);
+app.use('/api/news', newsRoute);
+
+app.use(notFoundHandler);
+
+app.use(errors());
+
+app.use(errorHandler);
 
 await connectMongoDB();
 
