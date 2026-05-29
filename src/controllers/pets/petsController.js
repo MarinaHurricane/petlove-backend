@@ -11,7 +11,7 @@ export const getPets = async (req, res) => {
     location,
     byDate,
     byPrice,
-    sex
+    gender,
   } = req.query;
   const skip = (page - 1) * perPage;
 
@@ -25,7 +25,7 @@ export const getPets = async (req, res) => {
         { category: { $regex: search, $options: 'i' } },
         { title: { $regex: search, $options: 'i' } },
         { comment: { $regex: search, $options: 'i' } },
-        { sex: { $regex: search, $options: 'i' } },
+        { gender: { $regex: search, $options: 'i' } },
       ],
     });
   }
@@ -50,8 +50,8 @@ export const getPets = async (req, res) => {
     petsQuery.sort({ createdAt: 1 });
   }
 
-  if(sex) {
-    petsQuery.where('sex').equals(sex);
+  if(gender) {
+    petsQuery.where('gender').equals(gender);
   }
 
   const [totalPets, pets] = await Promise.all([
@@ -64,12 +64,4 @@ export const getPets = async (req, res) => {
   res.status(200).json({ page, perPage, totalPets, totalPages, pets });
 };
 
-export const getPetById = async (req, res) => {
-  const { petId } = req.params;
-  console.log(req.params);
-  const pet = await Pet.findById(petId);
-  if (!pet) {
-    throw createHttpError(404, 'Pet not found');
-  }
-  res.status(200).json(pet);
-};
+

@@ -1,4 +1,7 @@
 import { Schema, model } from 'mongoose';
+import { SPECIES } from '../constants/species.js';
+import { CATEGORIES } from '../constants/categories.js';
+import { GENDER } from '../constants/gender.js';
 
 const petSchema = new Schema({
   _id: {
@@ -6,10 +9,12 @@ const petSchema = new Schema({
   },
   species: {
     type: String,
+    enum: SPECIES,
     required: true,
   },
   category: {
     type: String,
+    enum: CATEGORIES,
     required: true,
   },
   title: {
@@ -28,8 +33,9 @@ const petSchema = new Schema({
     type: String,
     required: true,
   },
-  sex: {
+  gender: {
     type: String,
+    enum: GENDER,
     required: true,
   },
   location: {
