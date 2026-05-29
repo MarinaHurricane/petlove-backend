@@ -2,6 +2,7 @@ import { getPets } from "./pets/petsController.js";
 import { getPetById } from "./pets/petsController.js";
 import { getNews } from "./news/newsController.js";
 import { registerUser } from "./auth/registerUser.js";
+import { loginUser } from "./auth/loginUser.js";
 
 export const pets = {
   getPets,
@@ -14,4 +15,5 @@ export const news = {
 
 export const auth = {
   registerUser,
+  loginUser,
 };
