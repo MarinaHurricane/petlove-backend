@@ -7,5 +7,6 @@ const authRoute = new Router();
 
 authRoute.post('/register', celebrate(registerUserSchema), auth.registerUser);
 authRoute.post('/login', celebrate(loginUserSchema), auth.loginUser);
+authRoute.post('/logout', auth.logoutUser);
 
 export default authRoute;

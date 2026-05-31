@@ -9,6 +9,8 @@ import { connectMongoDB } from './db/connectMongoDB.js';
 import petsRoute from './routes/petsRoute.js';
 import newsRoute from './routes/newsRoute.js';
 import authRoute from './routes/authRoute.js';
+import friendsRoute from './routes/friendsRoute.js';
+import locationRoute from './routes/locationRoute.js';
 
 const PORT = process.env.PORT ?? 3000;
 
@@ -32,9 +34,13 @@ app.use(
   }),
 );
 
+
+
 app.use('/api/auth', authRoute);
 app.use('/api/pets', petsRoute);
 app.use('/api/news', newsRoute);
+app.use('/api/friends', friendsRoute);
+app.use('/api/cities', locationRoute);
 
 app.use(notFoundHandler);
 

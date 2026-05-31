@@ -5,7 +5,7 @@ import { GENDER } from '../constants/gender.js';
 
 const petSchema = new Schema({
   _id: {
-    type: String,
+    type: Schema.Types.ObjectId,
   },
   species: {
     type: String,

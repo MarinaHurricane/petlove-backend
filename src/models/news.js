@@ -1,8 +1,11 @@
 import { Schema, model } from 'mongoose';
 
 const newsSchema = new Schema({
+   _id: {
+    type: Schema.Types.ObjectId,
+  },
   imgUrl: {
-    type: String,
+    type: Schema.Types.ObjectId,
     required: true,
   },
   title: {

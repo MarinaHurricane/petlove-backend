@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { celebrate } from "celebrate";
 import { pets } from "../controllers/index.js";
+import { authenticate } from "../middleware/authenticate.js";
 
 const petsRoute = Router();
 

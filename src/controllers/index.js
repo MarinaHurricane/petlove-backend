@@ -6,6 +6,10 @@ import { loginUser } from "./auth/loginUser.js";
 import { getPetsCategories } from "./pets/getPetsCategories.js";
 import { getPetsGender } from "./pets/getPetsGender.js";
 import { getPetsSpecies } from "./pets/getPetsSpecies.js";
+import { logoutUser } from "./auth/logoutUser.js";
+import { getFriends } from "./friends/getFriends.js";
+import { getAllCities } from "./location/getAllCities.js";
+import { getPetsCities } from "./location/getPetsCities.js";
 
 export const pets = {
   getPets,
@@ -22,4 +26,14 @@ export const news = {
 export const auth = {
   registerUser,
   loginUser,
+  logoutUser,
+};
+
+export const friends = {
+  getFriends,
+};
+
+export const location = {
+  getAllCities,
+  getPetsCities,
 };
