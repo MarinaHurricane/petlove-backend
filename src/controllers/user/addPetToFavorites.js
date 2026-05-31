@@ -1,0 +1,18 @@
+import { User } from '../../models/user.js';
+
+export const addPetToFavorites = async (req, res) => {
+  const { petId } = req.params;
+  const userId = req.user.id;
+
+  const updatedUser = await User.findOneAndUpdate(
+    { _id: userId },
+    {
+      $addToSet: {
+        favorites: petId,
+      },
+    },
+    { returnDocument: 'after' },
+  );
+
+  res.status(200).json(updatedUser);
+};

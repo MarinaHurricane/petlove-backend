@@ -2,6 +2,8 @@ import { Schema, model } from 'mongoose';
 import { SPECIES } from '../constants/species.js';
 import { CATEGORIES } from '../constants/categories.js';
 import { GENDER } from '../constants/gender.js';
+import { City } from './city.js';
+
 
 const petSchema = new Schema({
   _id: {
@@ -40,6 +42,7 @@ const petSchema = new Schema({
   },
   location: {
     type: String,
+    ref: City,
     required: true,
   },
   imgURL: {
@@ -47,13 +50,14 @@ const petSchema = new Schema({
     required: true,
   },
   user: {
-    type: String,
-    required: true,
+    type: Schema.Types.ObjectId,
+    ref: 'User',
   },
   popularity: {
     type: Number,
     required: true,
   },
+
 }, {
   timestamps: true,
 },

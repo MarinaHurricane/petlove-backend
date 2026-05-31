@@ -10,6 +10,9 @@ import { logoutUser } from "./auth/logoutUser.js";
 import { getFriends } from "./friends/getFriends.js";
 import { getAllCities } from "./location/getAllCities.js";
 import { getPetsCities } from "./location/getPetsCities.js";
+import { addPetToFavorites } from "./user/addPetToFavorites.js";
+import { removePetFromFavorites } from "./user/removePetFromFavorites.js";
+import { getUserInfo } from "./user/getUserInfo.js";
 
 export const pets = {
   getPets,
@@ -36,4 +39,10 @@ export const friends = {
 export const location = {
   getAllCities,
   getPetsCities,
+};
+
+export const user = {
+  getUserInfo,
+  addPetToFavorites,
+  removePetFromFavorites,
 };

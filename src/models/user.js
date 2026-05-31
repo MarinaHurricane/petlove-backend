@@ -19,6 +19,14 @@ const userSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'Pet'
     },
+  ],
+  ownPets: [
+    {
+      type: Schema.Types.ObjectId,
+      name: String,
+      title: String,
+
+    }
   ]
 },
 {
