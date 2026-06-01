@@ -12,7 +12,7 @@ export const addPetToFavorites = async (req, res) => {
       },
     },
     { returnDocument: 'after' },
-  );
+  ).populate('favorites');
 
   res.status(200).json(updatedUser);
 };

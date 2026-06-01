@@ -4,7 +4,6 @@ import { CATEGORIES } from '../constants/categories.js';
 import { GENDER } from '../constants/gender.js';
 import { City } from './city.js';
 
-
 const petSchema = new Schema({
   _id: {
     type: Schema.Types.ObjectId,

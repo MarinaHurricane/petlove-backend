@@ -1,37 +1,38 @@
-import { Schema, model } from "mongoose";
+import { Schema, model } from 'mongoose';
 
-const userSchema = new Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  email: {
-    type: String,
-    unique: true,
-    required: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  favorites: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: 'Pet'
+const userSchema = new Schema(
+  {
+    name: {
+      type: String,
+      required: true,
     },
-  ],
-  ownPets: [
-    {
-      type: Schema.Types.ObjectId,
-      name: String,
-      title: String,
-
-    }
-  ]
-},
-{
-  timestamps: true,
-},
+    email: {
+      type: String,
+      unique: true,
+      required: true,
+    },
+    password: {
+      type: String,
+      required: true,
+    },
+    favorites: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Pet',
+        default: [],
+      },
+    ],
+    ownPets: [
+      {
+        type: Schema.Types.ObjectId,
+       ref: 'OwnPet',
+       default: [],
+      },
+    ],
+  },
+  {
+    timestamps: true,
+  },
 );
 
 export const User = model('User', userSchema);

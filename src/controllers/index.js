@@ -13,6 +13,8 @@ import { getPetsCities } from "./location/getPetsCities.js";
 import { addPetToFavorites } from "./user/addPetToFavorites.js";
 import { removePetFromFavorites } from "./user/removePetFromFavorites.js";
 import { getUserInfo } from "./user/getUserInfo.js";
+import { addOwnPet } from "./user/addOwnPet.js";
+import { removeOwnPet } from "./user/removeOwnPet.js";
 
 export const pets = {
   getPets,
@@ -45,4 +47,6 @@ export const user = {
   getUserInfo,
   addPetToFavorites,
   removePetFromFavorites,
+  addOwnPet,
+  removeOwnPet,
 };
