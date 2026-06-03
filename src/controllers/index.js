@@ -15,6 +15,7 @@ import { removePetFromFavorites } from "./user/removePetFromFavorites.js";
 import { getUserInfo } from "./user/getUserInfo.js";
 import { addOwnPet } from "./user/addOwnPet.js";
 import { removeOwnPet } from "./user/removeOwnPet.js";
+import { updateUserAvatar } from "./user/updateUserAvatar.js";
 
 export const pets = {
   getPets,
@@ -49,4 +50,5 @@ export const user = {
   removePetFromFavorites,
   addOwnPet,
   removeOwnPet,
+  updateUserAvatar,
 };
