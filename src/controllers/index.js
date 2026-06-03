@@ -13,9 +13,10 @@ import { getPetsCities } from "./location/getPetsCities.js";
 import { addPetToFavorites } from "./user/addPetToFavorites.js";
 import { removePetFromFavorites } from "./user/removePetFromFavorites.js";
 import { getUserInfo } from "./user/getUserInfo.js";
-import { addOwnPet } from "./user/addOwnPet.js";
-import { removeOwnPet } from "./user/removeOwnPet.js";
+import { addOwnPet } from "./pets/addOwnPet.js";
+import { removeOwnPet } from "./pets/removeOwnPet.js";
 import { updateUserAvatar } from "./user/updateUserAvatar.js";
+import { updateUser } from "./user/updateUser.js";
 
 export const pets = {
   getPets,
@@ -23,6 +24,8 @@ export const pets = {
   getPetsCategories,
   getPetsGender,
   getPetsSpecies,
+    addOwnPet,
+    removeOwnPet,
 };
 
 export const news = {
@@ -48,7 +51,6 @@ export const user = {
   getUserInfo,
   addPetToFavorites,
   removePetFromFavorites,
-  addOwnPet,
-  removeOwnPet,
   updateUserAvatar,
+  updateUser
 };

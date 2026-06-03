@@ -3,6 +3,10 @@ import { GENDER } from "../constants/gender.js";
 import { SPECIES } from "../constants/species.js";
 
 const ownPetSchema = new Schema({
+  _id: {
+    type: Schema.Types.ObjectId,
+    required: true,
+  },
   gender: {
     type: String,
     enum: GENDER,
@@ -15,6 +19,10 @@ const ownPetSchema = new Schema({
     type: String,
     enum: SPECIES,
   },
+owner: {
+  type: Schema.Types.ObjectId,
+  ref: 'User',
+}
 },
 {
   timestamps: true,

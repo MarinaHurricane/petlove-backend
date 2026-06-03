@@ -2,13 +2,16 @@ import { Router } from "express";
 import { celebrate } from "celebrate";
 import { pets } from "../controllers/index.js";
 import { authenticate } from "../middleware/authenticate.js";
+import { createOwnPetSchema, getPublicPetsSchema, petIdSchema } from "../validations/petsValidation.js";
 
 const petsRoute = Router();
 
-petsRoute.get('/', pets.getPets);
+petsRoute.get('/', celebrate(getPublicPetsSchema), pets.getPets);
+petsRoute.post('/', authenticate, celebrate(createOwnPetSchema), pets.addOwnPet);
+petsRoute.delete('/:petId', authenticate, celebrate(petIdSchema), pets.removeOwnPet);
 petsRoute.get('/categories', pets.getPetsCategories);
 petsRoute.get('/gender', pets.getPetsGender);
 petsRoute.get('/species', pets.getPetsSpecies);
-petsRoute.get('/:petId', pets.getPetById);
+petsRoute.get('/:petId', authenticate, celebrate(petIdSchema), pets.getPetById);
 
 export default petsRoute;

@@ -4,7 +4,7 @@ import createHttpError from 'http-errors';
 export const getPets = async (req, res) => {
   const {
     page,
-    perPage = 6,
+    perPage,
     search,
     category,
     species,

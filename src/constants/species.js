@@ -12,5 +12,6 @@ export const SPECIES = [
   "bees",
   "butterfly",
   "spider",
-  "scorpion"
+  "scorpion",
+  "rabbit",
 ];
