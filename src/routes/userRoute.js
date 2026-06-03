@@ -18,4 +18,5 @@ userRoute.patch('/me/favorites/:petId', celebrate(petIdSchema), user.addPetToFav
 userRoute.delete('/me/:petId', celebrate(petIdSchema), user.removePetFromFavorites);
 
 
+
 export default userRoute;

@@ -17,6 +17,8 @@ import { addOwnPet } from "./pets/addOwnPet.js";
 import { removeOwnPet } from "./pets/removeOwnPet.js";
 import { updateUserAvatar } from "./user/updateUserAvatar.js";
 import { updateUser } from "./user/updateUser.js";
+import { refreshUserSession } from "./auth/refreshUserSession.js";
+import { requestResetEmail } from "./auth/requestResetEmail.js";
 
 export const pets = {
   getPets,
@@ -36,6 +38,8 @@ export const auth = {
   registerUser,
   loginUser,
   logoutUser,
+  refreshUserSession,
+  requestResetEmail,
 };
 
 export const friends = {
