@@ -5,7 +5,7 @@ const newsSchema = new Schema({
     type: Schema.Types.ObjectId,
   },
   imgUrl: {
-    type: Schema.Types.ObjectId,
+    type: String,
     required: true,
   },
   title: {
