@@ -1,3 +1,4 @@
+import { City } from '../../models/city.js';
 import { Pet } from '../../models/pet.js';
 import createHttpError from 'http-errors';
 
@@ -13,7 +14,7 @@ export const getPets = async (req, res) => {
     byPriceLowToHigh,
     byPriceHighToLow,
     popularityHighToLow,
-     popularityLowToHigh,
+    popularityLowToHigh,
     gender,
   } = req.query;
   const skip = (page - 1) * perPage;
@@ -42,30 +43,36 @@ export const getPets = async (req, res) => {
   }
 
   if (location) {
-    petsQuery.where('location').equals(location);
+    const cities = await City.find({
+      city: {
+        $regex: location, $options: 'i'
+      },
+    });
+    const cityIds = cities.map(city => city._id.toString());
+    petsQuery.where('location').in(cityIds);
   }
 
   if (byPriceLowToHigh) {
     petsQuery.where('category').in(['sell', 'free']).sort({ price: 1 });
   }
 
-  if(byPriceHighToLow) {
-    petsQuery.where('category').in(['sell', 'free']).sort({ price: -1});
+  if (byPriceHighToLow) {
+    petsQuery.where('category').in(['sell', 'free']).sort({ price: -1 });
   }
 
-  if(popularityHighToLow) {
-    petsQuery.sort({ popularity: -1});
+  if (popularityHighToLow) {
+    petsQuery.sort({ popularity: -1 });
   }
 
-  if(popularityLowToHigh) {
-    petsQuery.sort({ popularity: 1});
+  if (popularityLowToHigh) {
+    petsQuery.sort({ popularity: 1 });
   }
 
   if (byDate) {
     petsQuery.sort({ createdAt: 1 });
   }
 
-  if(gender) {
+  if (gender) {
     petsQuery.where('gender').equals(gender);
   }
 
@@ -78,5 +85,3 @@ export const getPets = async (req, res) => {
 
   res.status(200).json({ page, perPage, totalPets, totalPages, pets });
 };
-
-
