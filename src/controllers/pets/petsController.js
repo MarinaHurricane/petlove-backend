@@ -10,7 +10,10 @@ export const getPets = async (req, res) => {
     species,
     location,
     byDate,
-    byPrice,
+    byPriceLowToHigh,
+    byPriceHighToLow,
+    popularityHighToLow,
+     popularityLowToHigh,
     gender,
   } = req.query;
   const skip = (page - 1) * perPage;
@@ -42,8 +45,20 @@ export const getPets = async (req, res) => {
     petsQuery.where('location').equals(location);
   }
 
-  if (byPrice) {
+  if (byPriceLowToHigh) {
     petsQuery.where('category').in(['sell', 'free']).sort({ price: 1 });
+  }
+
+  if(byPriceHighToLow) {
+    petsQuery.where('category').in(['sell', 'free']).sort({ price: -1});
+  }
+
+  if(popularityHighToLow) {
+    petsQuery.sort({ popularity: -1});
+  }
+
+  if(popularityLowToHigh) {
+    petsQuery.sort({ popularity: 1});
   }
 
   if (byDate) {
