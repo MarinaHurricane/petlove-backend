@@ -11,16 +11,12 @@ export const getPets = async (req, res) => {
     species,
     location,
     byDate,
-    byPriceLowToHigh,
-    byPriceHighToLow,
-    popularityHighToLow,
-    popularityLowToHigh,
     gender,
+    sort,
   } = req.query;
   const skip = (page - 1) * perPage;
 
   const petsQuery = Pet.find();
-  console.log(petsQuery);
 
   if (search) {
     petsQuery.where({
@@ -45,27 +41,12 @@ export const getPets = async (req, res) => {
   if (location) {
     const cities = await City.find({
       city: {
-        $regex: location, $options: 'i'
+        $regex: location,
+        $options: 'i',
       },
     });
-    const cityIds = cities.map(city => city._id.toString());
+    const cityIds = cities.map((city) => city._id.toString());
     petsQuery.where('location').in(cityIds);
-  }
-
-  if (byPriceLowToHigh) {
-    petsQuery.where('category').in(['sell', 'free']).sort({ price: 1 });
-  }
-
-  if (byPriceHighToLow) {
-    petsQuery.where('category').in(['sell', 'free']).sort({ price: -1 });
-  }
-
-  if (popularityHighToLow) {
-    petsQuery.sort({ popularity: -1 });
-  }
-
-  if (popularityLowToHigh) {
-    petsQuery.sort({ popularity: 1 });
   }
 
   if (byDate) {
@@ -74,6 +55,21 @@ export const getPets = async (req, res) => {
 
   if (gender) {
     petsQuery.where('gender').equals(gender);
+  }
+
+  switch (sort) {
+    case 'expensive':
+      petsQuery.where('category').in(['sell', 'free']).sort({ price: -1 });
+      break;
+    case 'cheap':
+      petsQuery.where('category').in(['sell', 'free']).sort({ price: 1 });
+      break;
+    case 'popular':
+      petsQuery.sort({ popularity: -1 });
+      break;
+    case 'unpopular':
+      petsQuery.sort({ popularity: 1 });
+      break;
   }
 
   const [totalPets, pets] = await Promise.all([

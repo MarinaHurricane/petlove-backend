@@ -15,6 +15,7 @@ export const getPublicPetsSchema = {
     byDate: Joi.boolean().default(false),
     byPrice: Joi.boolean().default(false),
     gender: Joi.string().valid(...GENDER),
+    sort: Joi.string(),
   })
 };
 
