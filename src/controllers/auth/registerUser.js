@@ -5,7 +5,6 @@ import { createSession, setSessionCookies } from "../../services/auth.js";
 
 export const registerUser = async(req, res) => {
   const {name, email, password} = req.body;
-  console.log(name);
 
   const existingUser = await User.findOne({email});
   if(existingUser) {
@@ -18,7 +17,6 @@ export const registerUser = async(req, res) => {
     email,
     password: hashedPassword,
   });
-  console.log(newUser);
 
   const newSession = await createSession(newUser._id);
 
