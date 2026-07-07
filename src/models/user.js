@@ -20,6 +20,7 @@ const userSchema = new Schema(
       required: false,
       default: 'https://ac.goit.global/fullstack/react/default-avatar.jpg',
     },
+    phone: String,
     favorites: [
       {
         type: Schema.Types.ObjectId,
