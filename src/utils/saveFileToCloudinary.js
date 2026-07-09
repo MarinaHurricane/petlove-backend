@@ -13,6 +13,7 @@ console.log({
 });
 
 export const saveFileToCloudinary = (buffer) => {
+  console.log("Cloudinary config:", cloudinary.config());
   return new Promise((resolve, reject) => {
     const uploadStream = cloudinary.uploader.upload_stream(
       {
