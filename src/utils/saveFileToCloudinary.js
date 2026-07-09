@@ -13,6 +13,12 @@ console.log({
 });
 
 export const saveFileToCloudinary = (buffer) => {
+  console.log(
+  "cloud name:",
+  JSON.stringify(process.env.CLOUDINARY_CLOUD_NAME),
+  "length:",
+  process.env.CLOUDINARY_CLOUD_NAME.length
+);
   console.log("Cloudinary config:", cloudinary.config());
   return new Promise((resolve, reject) => {
     const uploadStream = cloudinary.uploader.upload_stream(

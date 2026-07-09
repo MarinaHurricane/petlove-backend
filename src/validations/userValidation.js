@@ -9,6 +9,7 @@ export const updateUserSchema = {
   .messages({
     'string.pattern.base': 'Invalid phone number format',
   })
-  .optional(),
+  .optional()
+  .allow('')
   })
 };
