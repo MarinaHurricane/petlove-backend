@@ -6,20 +6,7 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
-console.log({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET ? "exists" : "missing",
-});
-
 export const saveFileToCloudinary = (buffer) => {
-  console.log(
-  "cloud name:",
-  JSON.stringify(process.env.CLOUDINARY_CLOUD_NAME),
-  "length:",
-  process.env.CLOUDINARY_CLOUD_NAME.length
-);
-  console.log("Cloudinary config:", cloudinary.config());
   return new Promise((resolve, reject) => {
     const uploadStream = cloudinary.uploader.upload_stream(
       {
