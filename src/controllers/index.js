@@ -19,6 +19,7 @@ import { updateUserAvatar } from "./user/updateUserAvatar.js";
 import { updateUser } from "./user/updateUser.js";
 import { refreshUserSession } from "./auth/refreshUserSession.js";
 import { requestResetEmail } from "./auth/requestResetEmail.js";
+import { addViewedPet } from "./user/addViewedPet.js";
 
 export const pets = {
   getPets,
@@ -56,5 +57,6 @@ export const user = {
   addPetToFavorites,
   removePetFromFavorites,
   updateUserAvatar,
-  updateUser
+  updateUser,
+  addViewedPet,
 };

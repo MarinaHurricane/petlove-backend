@@ -35,6 +35,13 @@ const userSchema = new Schema(
        default: [],
       },
     ],
+      viewed: [
+      {
+        type: Schema.Types.ObjectId,
+        ref: 'Pet',
+        default: [],
+      },
+    ],
   },
   {
     timestamps: true,
