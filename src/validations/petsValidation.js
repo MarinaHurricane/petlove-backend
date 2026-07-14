@@ -26,12 +26,12 @@ const objectIdValidator = (value, helpers) => {
 export const createOwnPetSchema = {
   [Segments.BODY] : Joi.object({
     gender: Joi.string().valid(...GENDER),
-    imgUrl: Joi.string().trim().allow(''),
+    // avatar: Joi.string().trim().allow(''),
     title: Joi.string().trim().required(),
     name: Joi.string().trim().required(),
     dateOfBirth: Joi.date().required(),
     species: Joi.string().valid(...SPECIES),
-    owner: Joi.string().custom(objectIdValidator).required(),
+    // owner: Joi.string().custom(objectIdValidator).required(),
   })
 };
 

@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { celebrate } from "celebrate";
+import { upload } from "../middleware/multer.js";
 import { pets } from "../controllers/index.js";
 import { authenticate } from "../middleware/authenticate.js";
 import { createOwnPetSchema, getPublicPetsSchema, petIdSchema } from "../validations/petsValidation.js";
@@ -7,7 +8,7 @@ import { createOwnPetSchema, getPublicPetsSchema, petIdSchema } from "../validat
 const petsRoute = Router();
 
 petsRoute.get('/', celebrate(getPublicPetsSchema), pets.getPets);
-petsRoute.post('/', authenticate, celebrate(createOwnPetSchema), pets.addOwnPet);
+petsRoute.post('/', authenticate, upload.single('avatar'), celebrate(createOwnPetSchema), pets.addOwnPet);
 petsRoute.delete('/:petId', authenticate, celebrate(petIdSchema), pets.removeOwnPet);
 petsRoute.get('/categories', pets.getPetsCategories);
 petsRoute.get('/gender', pets.getPetsGender);

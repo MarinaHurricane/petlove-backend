@@ -3,15 +3,14 @@ import { GENDER } from "../constants/gender.js";
 import { SPECIES } from "../constants/species.js";
 
 const ownPetSchema = new Schema({
-  _id: {
-    type: Schema.Types.ObjectId,
-    required: true,
-  },
+  // _id: {
+  //   type: Schema.Types.ObjectId,
+  // },
   gender: {
     type: String,
     enum: GENDER,
   },
-  imgUrl: String,
+  avatar: String,
   title: String,
   name: String,
   dateOfBirth: Date,
