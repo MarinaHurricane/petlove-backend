@@ -1,4 +1,5 @@
 import { OwnPet } from '../../models/ownPet.js';
+import { User } from '../../models/user.js';
 import { saveFileToCloudinary } from '../../utils/saveFileToCloudinary.js';
 
 export const addOwnPet = async (req, res) => {
@@ -16,6 +17,19 @@ export const addOwnPet = async (req, res) => {
     owner: userId,
   });
 
+  const updatedUser = await User.findOneAndUpdate(
+    { _id: userId },
+    {
+      $addToSet: {
+        ownPets: ownPet._id,
+      },
+    },
+    { returnDocument: 'after' },
+  )
+  .populate('ownPets')
+    .populate('favorites')
+    .populate('viewed');
+
   // const updatedUser = await User.findOneAndUpdate(
   //   { _id: userId },
   //   {
@@ -26,5 +40,5 @@ export const addOwnPet = async (req, res) => {
   //   {returnDocument: 'after'}
   // ).populate('ownPets');
 
-  res.status(201).json(ownPet);
+  res.status(201).json({ ownPet, updatedUser });
 };
