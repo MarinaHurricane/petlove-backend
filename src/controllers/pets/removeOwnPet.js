@@ -10,5 +10,15 @@ export const removeOwnPet = async (req, res) => {
     owner: userId,
   });
 
-  res.status(200).json(pet);
+  const updatedUser = await User.findOneAndUpdate(
+    { _id: userId },
+    {
+      $pull: {
+        ownPets: petId,
+      },
+    },
+    { returnDocument: 'after' },
+  ).populate('favorites').populate('ownPets').populate('viewed');
+
+  res.status(200).json({pet, updatedUser});
 };
