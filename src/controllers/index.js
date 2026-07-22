@@ -20,6 +20,7 @@ import { updateUser } from "./user/updateUser.js";
 import { refreshUserSession } from "./auth/refreshUserSession.js";
 import { requestResetEmail } from "./auth/requestResetEmail.js";
 import { addViewedPet } from "./user/addViewedPet.js";
+import { getRandomPet } from "./pets/getRandomPet.js";
 
 export const pets = {
   getPets,
@@ -29,6 +30,7 @@ export const pets = {
   getPetsSpecies,
     addOwnPet,
     removeOwnPet,
+    getRandomPet,
 };
 
 export const news = {
