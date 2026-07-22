@@ -8,7 +8,7 @@ import { createOwnPetSchema, getPublicPetsSchema, petIdSchema } from "../validat
 const petsRoute = Router();
 
 petsRoute.get('/', celebrate(getPublicPetsSchema), pets.getPets);
-petsRoute.get('/random', pets.getRandomPet);
+petsRoute.get('/random/:species', pets.getRandomPet);
 petsRoute.post('/', authenticate, upload.single('avatar'), celebrate(createOwnPetSchema), pets.addOwnPet);
 petsRoute.delete('/:petId', authenticate, celebrate(petIdSchema), pets.removeOwnPet);
 petsRoute.get('/categories', pets.getPetsCategories);
