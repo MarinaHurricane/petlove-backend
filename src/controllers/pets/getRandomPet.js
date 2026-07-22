@@ -1,7 +1,7 @@
 import { Pet } from '../../models/pet.js';
 
 export const getRandomPet = async (req, res) => {
-  const { species } = req.query;
+  const { species } = req.params;
 
   const [randomPet] = await Pet.aggregate([
     {
