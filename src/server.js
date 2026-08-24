@@ -24,7 +24,7 @@ app.use(
   cors({
     origin: [
       'http://localhost:5173',
-      'https://https://petlove-frontend.vercel.app',
+      'https://petlove-frontend.vercel.app',
     ],
     credentials: true,
   }),
