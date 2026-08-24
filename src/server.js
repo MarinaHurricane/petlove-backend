@@ -22,10 +22,7 @@ const app = express();
 app.use(express.json());
 app.use(
   cors({
-    origin: [
-      'http://localhost:5173',
-      'petlove-frontend-git-main-marynas-projects-3f5c6324.vercel.app',
-    ],
+    origin: 'petlove-frontend-git-main-marynas-projects-3f5c6324.vercel.app',
     credentials: true,
   }),
 );
