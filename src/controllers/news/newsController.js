@@ -1,12 +1,12 @@
-import { News } from "../../models/news.js";
+import { News } from '../../models/news.js';
 
-export const getNews = async(req, res) => {
-  const{page, perPage = 6, search} = req.query;
+export const getNews = async (req, res) => {
+  const { page, perPage = 6, search } = req.query;
   const skip = (page - 1) * perPage;
 
   const newsQuery = News.find();
 
-   if (search) {
+  if (search) {
     newsQuery.where({
       $or: [
         { title: { $regex: search, $options: 'i' } },
@@ -22,5 +22,5 @@ export const getNews = async(req, res) => {
 
   const totalPages = Math.ceil(totalNews / perPage);
 
-  res.status(200).json({page, perPage, totalPages, totalNews, news});
+  res.status(200).json({ page, perPage, totalPages, totalNews, news });
 };

@@ -1,5 +1,5 @@
-import { CATEGORIES } from "../../constants/categories.js";
+import { CATEGORIES } from '../../constants/categories.js';
 
-export const getPetsCategories = async( req, res) => {
+export const getPetsCategories = async (req, res) => {
   res.status(200).json(CATEGORIES);
 };

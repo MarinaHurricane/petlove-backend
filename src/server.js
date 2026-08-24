@@ -20,10 +20,15 @@ const PORT = process.env.PORT ?? 3000;
 const app = express();
 
 app.use(express.json());
-app.use(cors({
-  origin: "http://localhost:5173",
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: [
+      'http://localhost:5173',
+      'petlove-frontend-git-main-marynas-projects-3f5c6324.vercel.app',
+    ],
+    credentials: true,
+  }),
+);
 app.use(
   pino({
     level: 'info',
@@ -33,7 +38,8 @@ app.use(
         colorize: true,
         translateTime: 'HH:MM:ss',
         ignore: 'pid,hostname',
-        messageFormat: '{req.method} {req.url} {res.statusCode} - {responseTime}ms',
+        messageFormat:
+          '{req.method} {req.url} {res.statusCode} - {responseTime}ms',
         hideObject: true,
       },
     },
@@ -41,7 +47,6 @@ app.use(
 );
 app.use(helmet());
 app.use(cookieParser());
-
 
 app.use('/api/auth', authRoute);
 app.use('/api/pets', petsRoute);
@@ -61,4 +66,3 @@ await connectMongoDB();
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-

@@ -1,5 +1,5 @@
-import { Router } from "express";
-import { location } from "../controllers/index.js";
+import { Router } from 'express';
+import { location } from '../controllers/index.js';
 
 const locationRoute = new Router();
 

@@ -31,11 +31,11 @@ const userSchema = new Schema(
     ownPets: [
       {
         type: Schema.Types.ObjectId,
-       ref: 'OwnPet',
-       default: [],
+        ref: 'OwnPet',
+        default: [],
       },
     ],
-      viewed: [
+    viewed: [
       {
         type: Schema.Types.ObjectId,
         ref: 'Pet',

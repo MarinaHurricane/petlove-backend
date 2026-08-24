@@ -12,7 +12,10 @@ export const removePetFromFavorites = async (req, res) => {
       },
     },
     { returnDocument: 'after' },
-  ).populate('favorites').populate('ownPets').populate('viewed');
+  )
+    .populate('favorites')
+    .populate('ownPets')
+    .populate('viewed');
 
   res.status(200).json(updatedUser);
 };

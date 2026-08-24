@@ -1,18 +1,21 @@
-import { User } from "../../models/user.js";
+import { User } from '../../models/user.js';
 
-export const addViewedPet = async(req, res) => {
+export const addViewedPet = async (req, res) => {
   const userId = req.user._id;
-  const {petId} = req.params;
+  const { petId } = req.params;
 
   const updatedUser = await User.findOneAndUpdate(
-    {_id: userId},
+    { _id: userId },
     {
       $addToSet: {
-        viewed: petId
-      }
+        viewed: petId,
+      },
     },
-    {returnDocument: 'after'}
-  ).populate('favorites').populate('ownPets').populate('viewed');
+    { returnDocument: 'after' },
+  )
+    .populate('favorites')
+    .populate('ownPets')
+    .populate('viewed');
 
   return res.status(200).json(updatedUser);
 };

@@ -1,6 +1,5 @@
 import { City } from '../../models/city.js';
 import { Pet } from '../../models/pet.js';
-import createHttpError from 'http-errors';
 
 export const getPets = async (req, res) => {
   const {

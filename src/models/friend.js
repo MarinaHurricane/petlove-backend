@@ -1,22 +1,22 @@
-import { Schema, model } from "mongoose";
+import { Schema, model } from 'mongoose';
 
-  const workDaysSchema = new Schema({
-    isOpen: {
-      type: Boolean,
-      required: true,
-    },
-    from: {
-      type: String,
-      default: '',
-    },
-    to: {
-      type: String,
-      default: '',
-    },
-  });
+const workDaysSchema = new Schema({
+  isOpen: {
+    type: Boolean,
+    required: true,
+  },
+  from: {
+    type: String,
+    default: '',
+  },
+  to: {
+    type: String,
+    default: '',
+  },
+});
 
 const friendSchema = new Schema({
-   _id: {
+  _id: {
     type: Schema.Types.ObjectId,
     required: true,
   },
@@ -24,22 +24,20 @@ const friendSchema = new Schema({
     type: String,
     required: true,
   },
-    url: {
-      type: String,
-      required: true,
-    },
-    addressUrl : String,
-    imageUrl: {
-        type: String,
-      required: true,
+  url: {
+    type: String,
+    required: true,
+  },
+  addressUrl: String,
+  imageUrl: {
+    type: String,
+    required: true,
+  },
+  address: String,
+  phone: String,
+  email: String,
 
-    },
-    address: String,
-    phone: String,
-    email: String,
-
-    workDays: [workDaysSchema],
-
+  workDays: [workDaysSchema],
 });
 
 export const Friend = model('Friend', friendSchema);

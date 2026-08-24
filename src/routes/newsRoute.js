@@ -1,5 +1,5 @@
-import { Router } from "express";
-import { news } from "../controllers/index.js";
+import { Router } from 'express';
+import { news } from '../controllers/index.js';
 
 const newsRoute = new Router();
 

@@ -1,6 +1,1 @@
-export const CATEGORIES = [
-  'found',
-  'free',
-  'lost',
-  'sell'
-];
+export const CATEGORIES = ['found', 'free', 'lost', 'sell'];

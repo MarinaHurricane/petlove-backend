@@ -1,5 +1,5 @@
-import { Pet } from "../../models/pet.js";
-import createHttpError from "http-errors";
+import { Pet } from '../../models/pet.js';
+import createHttpError from 'http-errors';
 
 export const getPetById = async (req, res) => {
   const { petId } = req.params;

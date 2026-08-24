@@ -26,19 +26,9 @@ export const addOwnPet = async (req, res) => {
     },
     { returnDocument: 'after' },
   )
-  .populate('ownPets')
+    .populate('ownPets')
     .populate('favorites')
     .populate('viewed');
-
-  // const updatedUser = await User.findOneAndUpdate(
-  //   { _id: userId },
-  //   {
-  //     $addToSet: {
-  //       ownPets: ownPet,
-  //     },
-  //   },
-  //   {returnDocument: 'after'}
-  // ).populate('ownPets');
 
   res.status(201).json({ ownPet, updatedUser });
 };

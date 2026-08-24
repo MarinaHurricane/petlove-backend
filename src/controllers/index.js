@@ -1,26 +1,26 @@
-import { getPets } from "./pets/petsController.js";
-import { getPetById } from "./pets/getPetById.js";
-import { getNews } from "./news/newsController.js";
-import { registerUser } from "./auth/registerUser.js";
-import { loginUser } from "./auth/loginUser.js";
-import { getPetsCategories } from "./pets/getPetsCategories.js";
-import { getPetsGender } from "./pets/getPetsGender.js";
-import { getPetsSpecies } from "./pets/getPetsSpecies.js";
-import { logoutUser } from "./auth/logoutUser.js";
-import { getFriends } from "./friends/getFriends.js";
-import { getAllCities } from "./location/getAllCities.js";
-import { getPetsCities } from "./location/getPetsCities.js";
-import { addPetToFavorites } from "./user/addPetToFavorites.js";
-import { removePetFromFavorites } from "./user/removePetFromFavorites.js";
-import { getUserInfo } from "./user/getUserInfo.js";
-import { addOwnPet } from "./pets/addOwnPet.js";
-import { removeOwnPet } from "./pets/removeOwnPet.js";
-import { updateUserAvatar } from "./user/updateUserAvatar.js";
-import { updateUser } from "./user/updateUser.js";
-import { refreshUserSession } from "./auth/refreshUserSession.js";
-import { requestResetEmail } from "./auth/requestResetEmail.js";
-import { addViewedPet } from "./user/addViewedPet.js";
-import { getRandomPet } from "./pets/getRandomPet.js";
+import { getPets } from './pets/petsController.js';
+import { getPetById } from './pets/getPetById.js';
+import { getNews } from './news/newsController.js';
+import { registerUser } from './auth/registerUser.js';
+import { loginUser } from './auth/loginUser.js';
+import { getPetsCategories } from './pets/getPetsCategories.js';
+import { getPetsGender } from './pets/getPetsGender.js';
+import { getPetsSpecies } from './pets/getPetsSpecies.js';
+import { logoutUser } from './auth/logoutUser.js';
+import { getFriends } from './friends/getFriends.js';
+import { getAllCities } from './location/getAllCities.js';
+import { getPetsCities } from './location/getPetsCities.js';
+import { addPetToFavorites } from './user/addPetToFavorites.js';
+import { removePetFromFavorites } from './user/removePetFromFavorites.js';
+import { getUserInfo } from './user/getUserInfo.js';
+import { addOwnPet } from './pets/addOwnPet.js';
+import { removeOwnPet } from './pets/removeOwnPet.js';
+import { updateUserAvatar } from './user/updateUserAvatar.js';
+import { updateUser } from './user/updateUser.js';
+import { refreshUserSession } from './auth/refreshUserSession.js';
+import { requestResetEmail } from './auth/requestResetEmail.js';
+import { addViewedPet } from './user/addViewedPet.js';
+import { getRandomPet } from './pets/getRandomPet.js';
 
 export const pets = {
   getPets,
@@ -28,9 +28,9 @@ export const pets = {
   getPetsCategories,
   getPetsGender,
   getPetsSpecies,
-    addOwnPet,
-    removeOwnPet,
-    getRandomPet,
+  addOwnPet,
+  removeOwnPet,
+  getRandomPet,
 };
 
 export const news = {
